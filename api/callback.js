@@ -1,5 +1,6 @@
-export default function handler(req, res) {
-  const { code, state } = req.query;
+module.exports = function handler(req, res) {
+  const code = req.query.code;
+  const state = req.query.state;
   
   if (code) {
     res.redirect(302, `songbladesapp://auth?code=${code}&state=${state || ''}`);
